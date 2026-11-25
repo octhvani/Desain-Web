@@ -1,0 +1,107 @@
+/* Mengatur ukuran elemen agar lebih mudah diatur */
+* {
+    box-sizing: border-box;
+}
+
+/* Tampilan dasar halaman */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: "Times New Roman", serif;
+    background-color: white;
+}
+
+/* Membatasi lebar website dan meletakkannya di tengah */
+.container {
+    width: 100%;
+    max-width: 320px;
+    margin: auto;
+}
+
+/* Bagian header */
+header {
+    background-color: skyblue;
+    height: 170px;
+    padding: 10px 5px;
+}
+
+header h1 {
+    font-size: 20px;
+    margin-top: 0;
+}
+
+/* Menu navigasi */
+nav {
+    background-color: skyblue;
+    margin-top: 6px;
+    padding: 5px;
+    text-align: center;
+}
+
+nav a {
+    display: block;
+    color: blue;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 6px;
+}
+
+nav a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+/* Bagian daftar artikel */
+.artikel {
+    background-color: skyblue;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.artikel h2 {
+    font-size: 16px;
+    margin-top: 0;
+}
+
+.artikel ul {
+    padding-left: 40px;
+    margin-bottom: 10px;
+}
+
+.artikel a {
+    color: purple;
+}
+
+/* Bagian gambar */
+.gambar {
+    background-color: skyblue;
+    margin-top: 10px;
+    padding: 7px;
+    text-align: center;
+}
+
+.gambar img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Bagian footer */
+footer {
+    background-color: skyblue;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+    font-size: 11px;
+}
+
+/* Penyesuaian untuk layar HP */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        width: 100%;
+    }
+}
