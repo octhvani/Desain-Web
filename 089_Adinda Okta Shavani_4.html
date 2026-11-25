@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kopi Tambak – Sangrai Kopi dari Sidoarjo</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Bootstrap 5 melalui CDN (sesuai modul) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* ===== Kustomisasi: warna, tipografi, spacing (bukan desain default Bootstrap) ===== */
+    :root {
+      --teal: #0e3b43;
+      --lagoon: #2a7f82;
+      --mango: #f4b73f;
+      --mist: #f1f6f5;
+      --ink: #12232a;
+
+      --bs-primary: var(--lagoon);
+      --bs-primary-rgb: 42, 127, 130;
+      --bs-body-font-family: "Figtree", system-ui, sans-serif;
+      --bs-body-color: var(--ink);
+      --bs-body-bg: #fff;
+      --bs-border-radius: .5rem;
+    }
+    h1, h2, h3, h4, h5, .navbar-brand, .display-3, .display-4 {
+      font-family: "Bricolage Grotesque", "Figtree", sans-serif;
+      letter-spacing: -.02em;
+    }
+    html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+    section { padding: 5rem 0; }
+    :focus-visible { outline: 3px solid var(--mango); outline-offset: 2px; }
+
+    /* Tombol kustom */
+    .btn { font-weight: 600; padding: .7rem 1.4rem; border-radius: .5rem; }
+    .btn-mango { background: var(--mango); color: var(--teal); border: 0; }
+    .btn-mango:hover { background: #ffc85c; color: var(--teal); }
+    .btn-teal { background: var(--teal); color: #fff; border: 0; }
+    .btn-teal:hover { background: var(--lagoon); color: #fff; }
+    .btn-outline-light:hover { color: var(--teal); }
+
+    /* Navbar */
+    .navbar { background: var(--teal); }
+    .navbar-brand { color: #fff !important; font-weight: 800; font-size: 1.4rem; }
+    .navbar-brand span { color: var(--mango); }
+    .nav-link { color: rgba(255,255,255,.8) !important; font-weight: 500; }
+    .nav-link:hover, .nav-link.active { color: #fff !important; }
+    .navbar-toggler { border-color: rgba(255,255,255,.4); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    /* Hero / Carousel */
+    .hero-slide {
+      min-height: 78vh; color: #fff; display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-slide .container { position: relative; z-index: 2; padding-bottom: 3.5rem; }
+    .hero-slide h1 { font-weight: 800; font-size: clamp(2.2rem, 6vw, 4.2rem); line-height: 1.05; max-width: 14ch; }
+    .hero-slide p.lead { max-width: 46ch; color: rgba(255,255,255,.88); }
+    .hero-slide .shape { position: absolute; right: -8%; top: 50%; transform: translateY(-50%); width: min(60vw, 560px); opacity: .9; z-index: 1; }
+    .s1 { background: var(--teal); }
+    .s2 { background: #1b5f63; }
+    .s3 { background: #2b2a33; }
+    .carousel-indicators [data-bs-target] { width: 34px; height: 4px; border: 0; background: var(--mango); }
+
+    /* Layanan */
+    #layanan { background: var(--mist); }
+    .section-title { font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+    .card-layanan { border: 0; border-top: 5px solid var(--lagoon); box-shadow: 0 1px 0 rgba(14,59,67,.12); }
+    .card-layanan.k2 { border-top-color: var(--mango); }
+    .card-layanan.k3 { border-top-color: var(--teal); }
+    .card-layanan .harga { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 1.35rem; color: var(--teal); }
+    .card-layanan .icon { width: 3rem; height: 3rem; margin-bottom: 1rem; }
+
+    /* Tentang */
+    .fakta { border-left: 4px solid var(--mango); padding-left: 1rem; }
+    .fakta strong { font-family: "Bricolage Grotesque", sans-serif; font-size: 2rem; display: block; color: var(--teal); }
+
+    /* Kontak */
+    #kontak { background: var(--teal); color: #fff; }
+    #kontak .form-card { background: #fff; color: var(--ink); border-radius: .75rem; padding: 2rem; }
+    .form-control, .form-select { padding: .7rem .9rem; }
+    .form-control:focus, .form-select:focus { border-color: var(--lagoon); box-shadow: 0 0 0 .25rem rgba(42,127,130,.25); }
+
+    footer { background: var(--ink); color: rgba(255,255,255,.7); padding: 1.5rem 0; font-size: .9rem; }
+
+    @media (max-width: 767.98px) {
+      section { padding: 3.5rem 0; }
+      .hero-slide { min-height: 70vh; }
+      .hero-slide .shape { opacity: .25; right: -30%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .carousel-item { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#beranda">Kopi<span>Tambak</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Buka menu navigasi">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-mango btn-sm px-3" href="#kontak">Hubungi kami</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO / CAROUSEL ================= -->
+  <header id="beranda">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="hero-slide s1">
+            <svg class="shape" viewBox="0 0 200 200" aria-hidden="true">
+              <ellipse cx="100" cy="100" rx="70" ry="92" fill="#f4b73f" transform="rotate(30 100 100)"/>
+              <path d="M52 168 C95 120 105 80 148 32" stroke="#0e3b43" stroke-width="9" fill="none" stroke-linecap="round"/>
+            </svg>
+            <div class="container">
+              <h1>Kopi sangrai segar dari pesisir Sidoarjo</h1>
+              <p class="lead my-4">Biji pilihan petani Jawa Timur, disangrai setiap minggu dalam batch kecil.</p>
+              <a href="#layanan" class="btn btn-mango me-2">Lihat layanan</a>
+              <a href="#kontak" class="btn btn-outline-light">Pesan sekarang</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="hero-slide s2">
+            <svg class="shape" viewBox="0 0 200 200" aria-hidden="true">
+              <circle cx="100" cy="100" r="90" fill="none" stroke="#f4b73f" stroke-width="10"/>
+              <circle cx="100" cy="100" r="58" fill="none" stroke="#f1f6f5" stroke-width="5"/>
+              <circle cx="100" cy="100" r="26" fill="#f4b73f"/>
+            </svg>
+            <div class="container">
+              <h1>Cangkir kopi untuk kantor dan kafe</h1>
+              <p class="lead my-4">Pasokan biji kopi rutin untuk bisnis Anda, lengkap dengan pelatihan seduh bagi barista.</p>
+              <a href="#kontak" class="btn btn-mango">Minta penawaran</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="hero-slide s3">
+            <svg class="shape" viewBox="0 0 200 200" aria-hidden="true">
+              <rect x="40" y="30" width="120" height="140" rx="18" fill="#f4b73f"/>
+              <rect x="56" y="60" width="88" height="10" rx="5" fill="#2b2a33"/>
+              <rect x="56" y="84" width="64" height="10" rx="5" fill="#2b2a33"/>
+              <rect x="56" y="108" width="76" height="10" rx="5" fill="#2b2a33"/>
+            </svg>
+            <div class="container">
+              <h1>Belajar menyeduh dengan benar</h1>
+              <p class="lead my-4">Kelas tatap muka setiap Sabtu. Dari manual brew sampai dasar espresso.</p>
+              <a href="#layanan" class="btn btn-mango">Daftar kelas</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Sebelumnya</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Berikutnya</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= CARD LAYANAN ================= -->
+  <section id="layanan">
+    <div class="container">
+      <h2 class="section-title text-center mb-2">Layanan kami</h2>
+      <p class="text-center mb-5 mx-auto" style="max-width:52ch">Tiga cara menikmati kopi Tambak, dari rumah sampai bisnis.</p>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card card-layanan h-100">
+            <div class="card-body p-4">
+              <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="24" rx="14" ry="19" fill="#2a7f82" transform="rotate(30 24 24)"/><path d="M14 40 C24 28 26 18 36 8" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+              <h3 class="h4">Biji kopi sangrai</h3>
+              <p class="card-text">Pilih single origin atau house blend. Dikirim maksimal 3 hari setelah disangrai.</p>
+              <p class="harga">Rp85.000 <small class="fs-6 fw-normal">/ 250 g</small></p>
+              <button class="btn btn-teal w-100" data-pilihan="Biji kopi sangrai">Pesan</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card card-layanan k2 h-100">
+            <div class="card-body p-4">
+              <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 16h26v12a10 10 0 0 1-10 10h-6A10 10 0 0 1 8 28z" fill="#f4b73f"/><path d="M34 19h4a5 5 0 0 1 0 10h-4" stroke="#f4b73f" stroke-width="3" fill="none"/></svg>
+              <h3 class="h4">Pasokan kafe dan kantor</h3>
+              <p class="card-text">Langganan bulanan dengan harga grosir dan jadwal kirim tetap.</p>
+              <p class="harga">Mulai Rp650.000 <small class="fs-6 fw-normal">/ bulan</small></p>
+              <button class="btn btn-teal w-100" data-pilihan="Pasokan kafe dan kantor">Minta penawaran</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="card card-layanan k3 h-100">
+            <div class="card-body p-4">
+              <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 36 24 10l18 26z" fill="#0e3b43"/><circle cx="24" cy="30" r="4" fill="#f4b73f"/></svg>
+              <h3 class="h4">Kelas seduh</h3>
+              <p class="card-text">Praktik langsung V60, French press, dan dasar espresso bersama barista kami.</p>
+              <p class="harga">Rp150.000 <small class="fs-6 fw-normal">/ orang</small></p>
+              <button class="btn btn-teal w-100" data-pilihan="Kelas seduh">Daftar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TENTANG ================= -->
+  <section id="tentang">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <h2 class="section-title mb-3">Dari tambak ke cangkir</h2>
+          <p>Kopi Tambak berdiri di Sidoarjo pada 2020. Kami bekerja sama langsung dengan petani kopi di Jawa Timur, menyangrai dalam jumlah kecil, dan mengirim kopi selagi masih segar.</p>
+          <p>Kami percaya secangkir kopi yang baik berawal dari biji yang diperlakukan dengan teliti.</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-4">
+            <div class="col-6"><div class="fakta"><strong>12</strong>petani mitra</div></div>
+            <div class="col-6"><div class="fakta"><strong>3 hari</strong>maks. dari sangrai ke kirim</div></div>
+            <div class="col-6"><div class="fakta"><strong>40+</strong>kafe pelanggan</div></div>
+            <div class="col-6"><div class="fakta"><strong>Sabtu</strong>kelas seduh mingguan</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FORM KONTAK ================= -->
+  <section id="kontak">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5">
+          <h2 class="section-title">Hubungi kami</h2>
+          <p class="mb-4">Isi formulir, tim kami membalas dalam satu hari kerja.</p>
+          <p class="mb-1">Jl. Raya Pesisir No. 12, Sidoarjo</p>
+          <p class="mb-1">halo@kopitambak.example</p>
+          <p>Senin–Sabtu, 08.00–17.00 WIB</p>
+        </div>
+        <div class="col-lg-7">
+          <form id="formKontak" class="form-card needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="nama" class="form-label">Nama lengkap</label>
+                <input type="text" class="form-control" id="nama" placeholder="Masukkan nama" required minlength="3">
+                <div class="invalid-feedback">Isi nama minimal 3 huruf.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="nama@email.com" required>
+                <div class="invalid-feedback">Isi email dengan format yang benar.</div>
+              </div>
+              <div class="col-12">
+                <label for="layanan-pilih" class="form-label">Layanan yang diminati</label>
+                <select class="form-select" id="layanan-pilih" required>
+                  <option value="" selected disabled>Pilih layanan</option>
+                  <option>Biji kopi sangrai</option>
+                  <option>Pasokan kafe dan kantor</option>
+                  <option>Kelas seduh</option>
+                </select>
+                <div class="invalid-feedback">Pilih salah satu layanan.</div>
+              </div>
+              <div class="col-12">
+                <label for="pesan" class="form-label">Pesan</label>
+                <textarea class="form-control" id="pesan" rows="4" placeholder="Tulis kebutuhan Anda" required></textarea>
+                <div class="invalid-feedback">Tulis pesan Anda.</div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-teal">Kirim pesan</button>
+              </div>
+            </div>
+            <div id="sukses" class="alert alert-success mt-3 mb-0 d-none" role="status">Pesan terkirim. Kami akan membalas lewat email.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>&copy; 2026 Kopi Tambak. Tugas Praktikum Desain Web – Bootstrap 5.</span>
+      <span>Sidoarjo, Jawa Timur</span>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Bundle JavaScript (untuk navbar toggler & carousel) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Validasi form + pesan sukses
+    const form = document.getElementById('formKontak');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('sukses').classList.add('d-none');
+      if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        return;
+      }
+      document.getElementById('sukses').classList.remove('d-none');
+      form.reset();
+      form.classList.remove('was-validated');
+    });
+
+    // Tombol pada card mengisi pilihan layanan di form lalu menuju form
+    document.querySelectorAll('[data-pilihan]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.getElementById('layanan-pilih').value = btn.dataset.pilihan;
+        document.getElementById('kontak').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
