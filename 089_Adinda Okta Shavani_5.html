@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Kopi Nusantara - Tailwind CSS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-amber-50 text-slate-700">
+
+  <header>
+    <nav class="flex flex-col sm:flex-row justify-between items-center gap-3 bg-white border-b-4 border-amber-900 px-6 py-4">
+      <h1 class="text-2xl font-extrabold tracking-tight text-amber-800"><span class="inline-block hover:animate-bounce">☕</span> Kopi Nusantara</h1>
+      <div class="flex gap-3 text-sm font-bold">
+        <a href="#" class="bg-amber-100 text-amber-900 px-4 py-1.5 rounded-full hover:bg-amber-700 hover:text-white transition">Home</a>
+        <a href="#" class="bg-amber-100 text-amber-900 px-4 py-1.5 rounded-full hover:bg-amber-700 hover:text-white transition">Produk</a>
+        <a href="#" class="bg-amber-100 text-amber-900 px-4 py-1.5 rounded-full hover:bg-amber-700 hover:text-white transition">Kontak</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container mx-auto px-4 py-10">
+
+    <div class="relative bg-gradient-to-r from-amber-700 to-orange-500 text-white rounded-3xl p-8 mb-10 overflow-hidden border-2 border-amber-950">
+      <span class="absolute -right-4 -top-6 text-9xl opacity-20 rotate-12">☕</span>
+      <span class="absolute right-24 bottom-2 text-5xl opacity-30 -rotate-12">🫘</span>
+      <h2 class="relative text-3xl md:text-5xl font-extrabold tracking-tight mb-2">Ngopi dulu, biar hidup lebih hangat 😎</h2>
+      <p class="relative text-lg text-amber-100 max-w-xl">Biji kopi pilihan dari petani lokal, disangrai segar setiap pekan. Harga per kemasan 250 gram.</p>
+    </div>
+
+    <h2 class="text-3xl font-extrabold tracking-tight text-amber-950 mb-6 text-center sm:text-left">Pilih jagoanmu 👇</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="flex flex-col bg-white rounded-3xl shadow-md hover:shadow-2xl hover:-translate-y-2 hover:-rotate-1 transition duration-300 overflow-hidden border-2 border-amber-900">
+        <div class="relative flex items-center justify-center h-36 bg-gradient-to-br from-amber-200 to-orange-300">
+          <span class="text-7xl drop-shadow">☕</span>
+          <span class="absolute top-3 left-3 -rotate-6 bg-green-200 text-green-800 text-xs font-extrabold px-3 py-1 rounded-full border-2 border-amber-900">🔥 Terlaris</span>
+        </div>
+        <div class="flex flex-col flex-1 p-6">
+          <h3 class="text-xl font-extrabold text-amber-950 mb-2">Gayo Aceh</h3>
+          <p class="text-sm leading-relaxed text-slate-600 mb-4">Si pekat berkarakter. Aroma cokelat dan rempah, pas buat kopi susu atau tubruk pagi-pagi.</p>
+          <p class="text-lg font-extrabold text-amber-700 mt-auto mb-4">Rp 85.000</p>
+          <button class="w-full bg-amber-700 hover:bg-amber-800 active:scale-95 text-white font-bold px-4 py-2.5 rounded-full border-2 border-amber-950 shadow-md hover:shadow-lg transition">Beli sekarang ☕</button>
+        </div>
+      </div>
+
+      <div class="flex flex-col bg-white rounded-3xl shadow-md hover:shadow-2xl hover:-translate-y-2 hover:rotate-1 transition duration-300 overflow-hidden border-2 border-amber-900">
+        <div class="relative flex items-center justify-center h-36 bg-gradient-to-br from-lime-200 to-emerald-300">
+          <span class="text-7xl drop-shadow">🌿</span>
+          <span class="absolute top-3 left-3 -rotate-6 bg-yellow-200 text-yellow-800 text-xs font-extrabold px-3 py-1 rounded-full border-2 border-amber-900">✨ Baru</span>
+        </div>
+        <div class="flex flex-col flex-1 p-6">
+          <h3 class="text-xl font-extrabold text-amber-950 mb-2">Kintamani Bali</h3>
+          <p class="text-sm leading-relaxed text-slate-600 mb-4">Segar kayak jeruk, ada wangi bunga. Paling enak diseduh manual sambil santai.</p>
+          <p class="text-lg font-extrabold text-amber-700 mt-auto mb-4">Rp 92.000</p>
+          <button class="w-full bg-amber-700 hover:bg-amber-800 active:scale-95 text-white font-bold px-4 py-2.5 rounded-full border-2 border-amber-950 shadow-md hover:shadow-lg transition">Beli sekarang ☕</button>
+        </div>
+      </div>
+
+      <div class="flex flex-col bg-white rounded-3xl shadow-md hover:shadow-2xl hover:-translate-y-2 hover:-rotate-1 transition duration-300 overflow-hidden border-2 border-amber-900">
+        <div class="relative flex items-center justify-center h-36 bg-gradient-to-br from-rose-200 to-pink-300">
+          <span class="text-7xl drop-shadow">🍫</span>
+          <span class="absolute top-3 left-3 -rotate-6 bg-red-200 text-red-800 text-xs font-extrabold px-3 py-1 rounded-full border-2 border-amber-900">💸 Diskon</span>
+        </div>
+        <div class="flex flex-col flex-1 p-6">
+          <h3 class="text-xl font-extrabold text-amber-950 mb-2">Toraja Sapan</h3>
+          <p class="text-sm leading-relaxed text-slate-600 mb-4">Earthy, ada karamel, dan aftertaste-nya betah di lidah.</p>
+          <p class="text-lg font-extrabold text-amber-700 mt-auto mb-4">Rp 89.000</p>
+          <button class="w-full bg-amber-700 hover:bg-amber-800 active:scale-95 text-white font-bold px-4 py-2.5 rounded-full border-2 border-amber-950 shadow-md hover:shadow-lg transition">Beli sekarang ☕</button>
+        </div>
+      </div>
+
+      <div class="flex flex-col bg-white rounded-3xl shadow-md hover:shadow-2xl hover:-translate-y-2 hover:rotate-1 transition duration-300 overflow-hidden border-2 border-amber-900">
+        <div class="relative flex items-center justify-center h-36 bg-gradient-to-br from-sky-200 to-indigo-300">
+          <span class="text-7xl drop-shadow">🥜</span>
+          <span class="absolute top-3 left-3 -rotate-6 bg-sky-200 text-sky-800 text-xs font-extrabold px-3 py-1 rounded-full border-2 border-amber-900">⏳ Terbatas</span>
+        </div>
+        <div class="flex flex-col flex-1 p-6">
+          <h3 class="text-xl font-extrabold text-amber-950 mb-2">Flores Bajawa</h3>
+          <p class="text-sm leading-relaxed text-slate-600 mb-4">Manis kayak gula aren plus sedikit rasa kacang. Aman buat yang baru mulai ngopi.</p>
+          <p class="text-lg font-extrabold text-amber-700 mt-auto mb-4">Rp 88.000</p>
+          <button class="w-full bg-amber-700 hover:bg-amber-800 active:scale-95 text-white font-bold px-4 py-2.5 rounded-full border-2 border-amber-950 shadow-md hover:shadow-lg transition">Beli sekarang ☕</button>
+        </div>
+      </div>
+
+      <div class="flex flex-col bg-white rounded-3xl shadow-md hover:shadow-2xl hover:-translate-y-2 hover:-rotate-1 transition duration-300 overflow-hidden border-2 border-amber-900">
+        <div class="relative flex items-center justify-center h-36 bg-gradient-to-br from-fuchsia-200 to-purple-300">
+          <span class="text-7xl drop-shadow">🍓</span>
+          <span class="absolute top-3 left-3 -rotate-6 bg-purple-200 text-purple-800 text-xs font-extrabold px-3 py-1 rounded-full border-2 border-amber-900">👑 Premium</span>
+        </div>
+        <div class="flex flex-col flex-1 p-6">
+          <h3 class="text-xl font-extrabold text-amber-950 mb-2">Wamena Papua</h3>
+          <p class="text-sm leading-relaxed text-slate-600 mb-4">Bersih dan lembut dengan nuansa buah beri dari dataran tinggi Papua.</p>
+          <p class="text-lg font-extrabold text-amber-700 mt-auto mb-4">Rp 120.000</p>
+          <button class="w-full bg-amber-700 hover:bg-amber-800 active:scale-95 text-white font-bold px-4 py-2.5 rounded-full border-2 border-amber-950 shadow-md hover:shadow-lg transition">Beli sekarang ☕</button>
+        </div>
+      </div>
+
+      <div class="flex flex-col bg-white rounded-3xl shadow-md hover:shadow-2xl hover:-translate-y-2 hover:rotate-1 transition duration-300 overflow-hidden border-2 border-amber-900">
+        <div class="relative flex items-center justify-center h-36 bg-gradient-to-br from-yellow-200 to-amber-300">
+          <span class="text-7xl drop-shadow">🎉</span>
+          <span class="absolute top-3 left-3 -rotate-6 bg-slate-200 text-slate-800 text-xs font-extrabold px-3 py-1 rounded-full border-2 border-amber-900">🎁 Paket</span>
+        </div>
+        <div class="flex flex-col flex-1 p-6">
+          <h3 class="text-xl font-extrabold text-amber-950 mb-2">Paket Coba Semua</h3>
+          <p class="text-sm leading-relaxed text-slate-600 mb-4">Lima varian, masing-masing 50 gram. Cicipi semua, pilih jagoanmu!</p>
+          <p class="text-lg font-extrabold text-amber-700 mt-auto mb-4">Rp 99.000</p>
+          <button class="w-full bg-amber-700 hover:bg-amber-800 active:scale-95 text-white font-bold px-4 py-2.5 rounded-full border-2 border-amber-950 shadow-md hover:shadow-lg transition">Beli sekarang ☕</button>
+        </div>
+      </div>
+
+    </div>
+
+    <form class="bg-white rounded-3xl shadow-md border-2 border-dashed border-amber-700 p-6 mt-12 max-w-md mx-auto sm:mx-0">
+      <h3 class="text-xl font-extrabold text-amber-950 mb-1">Ada yang mau ditanyakan? 💬</h3>
+      <p class="text-sm text-slate-500 mb-4">Tinggalkan nama dan email, nanti kami kabari.</p>
+      <input type="text" placeholder="Namamu" class="w-full border-2 border-amber-200 p-2.5 rounded-full px-4 mb-3 focus:outline-none focus:ring-2 focus:ring-amber-500">
+      <input type="email" placeholder="Emailmu" class="w-full border-2 border-amber-200 p-2.5 rounded-full px-4 mb-4 focus:outline-none focus:ring-2 focus:ring-amber-500">
+      <button type="submit" class="w-full bg-amber-700 hover:bg-amber-800 active:scale-95 text-white font-bold px-4 py-2.5 rounded-full border-2 border-amber-950 shadow-md hover:shadow-lg transition">Kirim pesan 🚀</button>
+    </form>
+
+  </main>
+
+  <footer class="text-center text-amber-900 text-sm py-6">
+    &copy; 2026 Kopi Nusantara &mdash; dibuat dengan Tailwind CSS ☕
+  </footer>
+
+</body>
+</html>
