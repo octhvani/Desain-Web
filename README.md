@@ -1,2 +1,2 @@
 # Desain-Web
-isinya project-project desian web okta cantik
+isinya project-project desain web okta cantik
